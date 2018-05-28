@@ -1,16 +1,16 @@
 #!/bin/bash
 
 TMP_FOLDER=$(mktemp -d)
-CONFIG_FILE='poseidon.conf'
-CONFIGFOLDER='/root/.poseidon'
-COIN_DAEMON='poseidond'
-COIN_CLI='poseidon-cli'
+CONFIG_FILE='lumen.conf'
+CONFIGFOLDER='/root/.lumencore'
+COIN_DAEMON='lumend'
+COIN_CLI='lumen-cli'
 COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://posq.io/POSQ_Linux.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
-COIN_NAME='poseidonquark'
-COIN_PORT=5510
-RPC_PORT=5511
+COIN_NAME='lumen'
+COIN_PORT=13444
+RPC_PORT=13445
 
 NODEIP=$(curl -s4 icanhazip.com)
 
