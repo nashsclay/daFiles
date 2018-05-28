@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.lumencore'
 COIN_DAEMON='lumend'
 COIN_CLI='lumen-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://posq.io/POSQ_Linux.zip'
+COIN_TGZ='https://github.com/lumenproject/lumen/releases/download/0.12.5.6/Lumen-linux.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='lumen'
 COIN_PORT=13444
@@ -23,10 +23,10 @@ NC='\033[0m'
 function download_node() {
   echo -e "Prepare to download ${GREEN}$COIN_NAME${NC}."
   cd $TMP_FOLDER >/dev/null 2>&1
-  wget -q $COIN_TGZ --no-check-certificate
+  wget -q $COIN_TGZ
   compile_error
   unzip $COIN_ZIP >/dev/null 2>&1
-  cd POSQ_Linux
+  cd Lumen-linux
   chmod +x $COIN_DAEMON $COIN_CLI
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
   cd ~ >/dev/null
@@ -119,34 +119,14 @@ maxconnections=256
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=192.243.103.201:5510
-addnode=192.243.103.202:5510
-addnode=80.111.218.44:5510
-addnode=192.243.101.179:5510
-addnode=192.243.100.6:5510
-addnode=192.243.100.65:5510
-addnode=192.243.102.48:5510
-addnode=165.227.226.176:5510
-addnode=159.89.19.161:5510
-addnode=185.248.140.13:5510
-addnode=84.200.24.120:5510
-addnode=37.228.224.37:5510
-addnode=91.39.113.78:5510
-addnode=196.52.39.22:5510
-addnode=140.82.61.65:5510
-addnode=91.39.113.78:5510
-addnode=63.140.89.8:5510
-addnode=203.220.144.229:5510
-addnode=216.117.128.40:5510
-addnode=18.222.88.154:5510
-addnode=173.30.75.11:5510
-addnode=110.232.112.81:5510
-addnode=85.15.190.106:5510
-addnode=82.142.153.162:5510
-addnode=45.77.148.21:5510
-addnode=173.239.218.20:5510
-addnode=159.65.20.209:5510
-addnode=172.245.185.184:5510
+addnode=217.163.29.79:13444
+addnode=217.182.159.47:13444
+addnode=45.77.40.135:13444
+addnode=213.32.95.66:13444
+addnode=85.204.97.244:13444
+addnode=85.25.119.74:13444
+addnode=92.222.241.39:13444
+addnode=45.32.216.236:13444
 EOF
 }
 
