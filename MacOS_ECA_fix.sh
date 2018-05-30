@@ -7,7 +7,7 @@ echo -e Last Updated: May 13, 2018
 echo
 echo Downloading latest peers.dat file
 echo
-wget https://github.com/nashsclay/daFiles/raw/master/peers.dat
+wget -q https://github.com/nashsclay/daFiles/raw/master/peers.dat
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
