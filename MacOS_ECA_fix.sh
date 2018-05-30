@@ -11,7 +11,7 @@ wget https://github.com/nashsclay/daFiles/raw/master/peers.dat
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
-if [ -d ~/.Electra/ ];
+if [ -d ~/Library/Application Support/Electra ];
    then
       echo
       echo Electra folder found
