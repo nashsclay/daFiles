@@ -1,5 +1,5 @@
 #!/bin/bash
-MAIN_FOLDER='~/Library/Application Support/Electra'
+MAIN_FOLDER="~/Library/Application Support/Electra"
 clear
 echo
 echo -e ECA User Support Fix-o-Lot v1.0
@@ -11,7 +11,7 @@ wget https://github.com/nashsclay/daFiles/raw/master/peers.dat
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
-if [ -d $MAIN_FOLDER ];
+if [ -d "$MAIN_FOLDER" ];
    then
       echo
       echo Electra folder found
@@ -20,8 +20,8 @@ if [ -d $MAIN_FOLDER ];
       killall -9 Electra-qt >/dev/null 2>&1
       killall -9 Electrad >/dev/null 2>&1
       echo
-      echo Copying peers.dat to $MAIN_FOLDER
-      yes | cp -rf ./peers.dat $MAIN_FOLDER/peers.dat
+      echo Copying peers.dat to "$MAIN_FOLDER"
+      yes | cp -rf ./peers.dat "$MAIN_FOLDER"/peers.dat
       sleep 1
       echo
       echo Copying peers.dat complete
@@ -34,7 +34,7 @@ if [ -d $MAIN_FOLDER ];
       exit 1
    else
       echo
-      echo Electra folder does not exist in $MAIN_FOLDER ...
+      echo Electra folder does not exist in "$MAIN_FOLDER" ...
       echo
       read -p "Press any key to quit"
       echo
