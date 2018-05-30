@@ -34,7 +34,7 @@ if [ -d $MAIN_FOLDER ];
       exit 1
    else
       echo
-      echo Electra folder does not exist in default location...
+      echo Electra folder does not exist in $MAIN_FOLDER ...
       echo
       read -p "Press any key to quit"
       echo
