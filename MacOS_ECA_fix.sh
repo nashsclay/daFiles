@@ -1,5 +1,5 @@
 #!/bin/bash
-MAIN_FOLDER="~/Library/Application Support/Electra"
+MAIN_FOLDER=~/Library/"Application Support"/Electra
 clear
 echo
 echo -e ECA User Support Fix-o-Lot v1.0
@@ -7,7 +7,7 @@ echo -e Last Updated: May 13, 2018
 echo
 echo Downloading latest peers.dat file
 echo
-wget -q https://github.com/nashsclay/daFiles/raw/master/peers.dat
+curl https://raw.githubusercontent.com/nashsclay/daFiles/master/MacOS_ECA_fix.sh -O
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
