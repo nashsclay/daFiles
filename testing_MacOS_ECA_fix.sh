@@ -4,9 +4,6 @@ ELECTRAFILE="electra-desktop-setup-1.0.8.exe"
 ELECTRAOLD="electra-desktop-setup-1.0.6.exe"
 LASTUPDATE="June 02, 2018"
 
-#**********************************************************
-#FROM WINDOWS
-#**********************************************************
 echo
 clear
 ECHO ...............................................
@@ -20,7 +17,7 @@ options=("Replace peers.dat" "[DO STEP 2 FIRST!] Assertion Error or Blockchain r
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Option 1")
+		"1")
             clear
 			echo
 			echo -e ECA User Support Fix-o-Lot v1.0
@@ -64,13 +61,22 @@ do
 			fi
 
             ;;
-        "Option 2")
+        "2")
             echo "you chose choice 2"
             ;;
-        "Option 3")
+        "3")
             echo "you chose choice 3"
             ;;
-        "Quit")
+		"4")
+            echo "you chose choice 4"
+            ;;
+		"5")
+            echo "you chose choice 5"
+            ;;
+		"6")
+            echo "you chose choice 6"
+            ;;
+        "7")
             break
             ;;
         *) echo invalid option;;
