@@ -13,11 +13,11 @@ ECHO PRESS 1, 2, 3, 5, OR 6 to select your task, or 6 to EXIT.
 ECHO ...............................................
 ECHO
 PS3='Type 1, 2, 3, 4, 5, 6, or 7 then press ENTER: '
-options=("Replace peers.dat" "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error" "Mnemonic Phrase Not Working Fix.....New Wallet" "Upgrade from QT wallet" "Quit Wallets" "Quit")
+options=("Replace peers.dat" "Backup Wallet" "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error" "Mnemonic Phrase Not Working Fix.....New Wallet" "Upgrade from QT wallet" "Quit Wallets" "Quit")
 select opt in "${options[@]}"
 do
 	case $opt in
-		"1")
+		"Replace peers.dat")
             clear
 			echo
 			echo -e ECA User Support Fix-o-Lot v1.0
@@ -61,22 +61,22 @@ do
 			fi
 
             ;;
-        "2")
-            echo "you chose choice 2"
-            ;;
-        "3")
+		"Backup Wallet")
+			echo "you chose choice 2"
+			;;
+        "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error")
             echo "you chose choice 3"
             ;;
-		"4")
+        "Mnemonic Phrase Not Working Fix.....New Wallet")
             echo "you chose choice 4"
             ;;
-		"5")
+		"Upgrade from QT wallet")
             echo "you chose choice 5"
             ;;
-		"6")
+		"Quit Wallets")
             echo "you chose choice 6"
             ;;
-        "7")
+        "Quit")
             break
             ;;
         *) echo invalid option;;
