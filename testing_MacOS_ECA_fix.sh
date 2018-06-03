@@ -49,15 +49,15 @@ do
 				  read -p "Press any key to go to the menu"
 				  echo
 				  clear
-				  GOTO 
+				  ;; 
 			   else
 				  echo
 				  echo Electra folder does not exist in "$MAIN_FOLDER" ...
 				  echo
-				  read -p "Press any key to quit"
+				  read -p "Press any key to go to the menu"
 				  echo
 				  clear
-				  exit 1
+				  ;;
 			fi
 
             ;;
