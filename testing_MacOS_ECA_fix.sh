@@ -64,32 +64,31 @@ do
 			echo
 			echo -=ECA User Spport Fix-o-Lot=-
 			for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
-			set today=%Year%-%Month%-%Day%
 			echo
+			CURRENTDATETIME=date '+%Y_%m_%d_%H:%M:%S_ECA_BACKUP_Wallet.dat'
 			echo Last Updated:%LASTUPDATE%
 			echo
 			echo Checking for Electra folder...
-			IF EXIST %APPDATA%\Electra\ (
-			mkdir %SYSTEMDRIVE%\ElectraWalletBackup\
-			echo Copying wallet.dat to %USERPROFILE%\Documents\ElectraWalletBackup
-			copy %APPDATA%\Electra\wallet.dat %SYSTEMDRIVE%\ElectraWalletBackup\ /y
-			copy %APPDATA%\Electra\wallet.dat %SYSTEMDRIVE%\ElectraWalletBackup\%today%wallet.dat /y
-			echo
-			echo wallet.dat successfully backedup!
-			echo
-			echo Press any key to open up the backedup folder...
-			pause
-			explorer %SYSTEMDRIVE%\ElectraWalletBackup\
-			echo
-			pause
-			GOTO MENU
-			) ELSE (
-			echo No Electra folder detected.
-			echo wallet.dat backup failed!
-			echo Exiting...
-			pause
-			GOTO MENU
-			)
+			if [ -d "$MAIN_FOLDER" ];
+			then
+				mkdir ElectraWalletBackup
+				echo Copying wallet.dat to ElectraWalletBackup
+				echo `pwd`/`ls ElectraWalletBackup`
+				yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/wallet.dat
+				yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/"$CURRENTDATETIME"
+				echo
+				echo wallet.dat successfully backedup!
+				echo
+				read -p "Press any key to open the file location in the finder"
+				open ElectraWalletBackup
+				echo
+				read -p "Press any key to go to the menu"
+			else
+				echo No Electra folder detected.
+				echo wallet.dat backup failed!
+				echo Exiting...
+				read -p "Press any key to go to the menu"
+			fi
 			;;
         "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error")
             echo
