@@ -2,32 +2,21 @@
 MAIN_FOLDER=~/Library/"Application Support"/Electra
 ELECTRAFILE="electra-desktop-setup-1.0.8.exe"
 ELECTRAOLD="electra-desktop-setup-1.0.6.exe"
-LASTUPDATE=June 02, 2018
+LASTUPDATE="June 02, 2018"
 
 #**********************************************************
 #FROM WINDOWS
 #**********************************************************
-echo off
-setlocal
-:MENU
-cls
+echo
+clear
 ECHO ...............................................
 ECHO ECA User Support Fix-o-Lot v1.0
 ECHO Windows 7, 8, 8.1, 10 ONLY!!
 ECHO PRESS 1, 2, 3, 5, OR 6 to select your task, or 6 to EXIT.
 ECHO ...............................................
 ECHO
-ECHO 1 - Replace peers.dat
-ECHO 2 - Backup Wallet
-ECHO 3 - [DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error
-ECHO 4 - Mnemonic Phrase Not Working Fix.....New Wallet
-ECHO 5 - Upgrade from QT wallet
-ECHO 6 - Quit Wallets
-ECHO 7 - EXIT
-ECHO
-
 PS3='Type 1, 2, 3, 4, 5, 6, or 7 then press ENTER: '
-options=("Option 1" "Option 2" "Option 3" "Quit")
+options=("Replace peers.dat" "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error" "Mnemonic Phrase Not Working Fix.....New Wallet" "Upgrade from QT wallet" "Quit Wallets" "Quit")
 select opt in "${options[@]}"
 do
 	case $opt in
