@@ -7,7 +7,7 @@ echo -e Last Updated: May 13, 2018
 echo
 echo Downloading latest peers.dat file
 echo
-curl -OL https://drive.google.com/open?id=11zPKIT_UCUgxQPYdVXykfM6fKZohKEz4
+curl -L -o peers.dat "https://drive.google.com/uc?export=download&id=${11zPKIT_UCUgxQPYdVXykfM6fKZohKEz4}"
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
