@@ -7,7 +7,7 @@ echo -e Last Updated: May 13, 2018
 echo
 echo Downloading latest peers.dat file
 echo
-curl -OL https://github.com/nashsclay/daFiles/raw/master/peers.dat
+curl -OL https://drive.google.com/open?id=11zPKIT_UCUgxQPYdVXykfM6fKZohKEz4
 echo
 echo -e Checking for Electra folder, please wait...
 sleep 2
