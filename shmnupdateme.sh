@@ -10,3 +10,9 @@ PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 sudo chmod 777 -R *
 cd depends
 sudo make -j4 HOST=x86_64-w64-mingw32
+cd ..
+chmod +x autogen.sh
+./autogen.sh
+chmod +x configure && chmod +x share/genbuild.sh && chmod +x src/leveldb/build_detect_platform
+./configure --with-gui=qt5 --prefix=`pwd`/depends/x86_64-w64-mingw32 --enable-static
+sudo make
