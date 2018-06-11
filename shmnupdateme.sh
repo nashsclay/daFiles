@@ -9,3 +9,4 @@ sudo apt -y install g++-mingw-w64-x86-64
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 sudo chmod 777 -R *
 cd depends
+sudo make -j4 HOST=x86_64-w64-mingw32
