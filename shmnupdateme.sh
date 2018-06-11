@@ -15,4 +15,4 @@ chmod +x autogen.sh
 sudo ./autogen.sh
 chmod +x configure && chmod +x share/genbuild.sh && chmod +x src/leveldb/build_detect_platform
 sudo ./configure --with-gui=qt5 --prefix=`pwd`/depends/x86_64-w64-mingw32 --enable-static
-sudo make
+sudo make -j4
