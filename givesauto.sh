@@ -12,6 +12,13 @@ cd leveldb && make libleveldb.a libmemenv.a
 cd ..
 #change j2 to how many cores you want to use, if 4, then do j4
 sudo make -j2 -f makefile.unix
+echo
+echo "File givesd is located in the src folder, current folder."
+echo "To run type: ./givesd"
+echo "and press enter. Press enter again after it says server starting to return to cli."
+echo "Other commands that also work, ./givesd getinfo, ./givesd masternode status"
+echo
+
 
 
 
