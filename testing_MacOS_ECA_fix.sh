@@ -8,13 +8,13 @@ LASTUPDATE="June 02, 2018"
 echo
 clear
 ECHO ...............................................
-ECHO ECA User Support Fix-o-Lot v1.0
+ECHO ECA User Support Fix-o-Lot v1.3
 ECHO Windows 7, 8, 8.1, 10 ONLY!!
-ECHO PRESS 1, 2, 3, 5, OR 6 to select your task, or 6 to EXIT.
+ECHO PRESS 1, 2, 3, 5, 7, 8 to select your task, or 9 to EXIT.
 ECHO ...............................................
 ECHO
-PS3='Type 1, 2, 3, 4, 5, 6, or 7 then press ENTER: '
-options=("Replace peers.dat" "Backup Wallet" "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error" "Mnemonic Phrase Not Working Fix.....New Wallet" "Upgrade from QT wallet" "Quit Wallets" "Quit")
+PS3='Type 1, 2, 3, 4, 5, 6, 7, 8, or 9 then press ENTER: '
+options=("Replace peers.dat" "Backup Wallet" "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error" "Mnemonic Phrase Not Working Fix.....New Wallet" "Upgrade from QT wallet" "Quit Wallets" "Rescan Wallet" "Blockchain Update Fast Sync" "Quit")
 select opt in "${options[@]}"
 do
 	case $opt in
@@ -61,34 +61,34 @@ do
 
             ;;
 		"Backup Wallet")
-			echo
-			echo -=ECA User Spport Fix-o-Lot=-
-			for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
-			echo
-			CURRENTDATETIME=date '+%Y_%m_%d_%H:%M:%S_ECA_BACKUP_Wallet.dat'
-			echo Last Updated:%LASTUPDATE%
-			echo
-			echo Checking for Electra folder...
-			if [ -d "$MAIN_FOLDER" ];
-			then
-				mkdir ElectraWalletBackup
-				echo Copying wallet.dat to ElectraWalletBackup
-				echo `pwd`/`ls ElectraWalletBackup`
-				yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/wallet.dat
-				yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/"$CURRENTDATETIME"
-				echo
-				echo wallet.dat successfully backedup!
-				echo
-				read -p "Press any key to open the file location in the finder"
-				open ElectraWalletBackup
-				echo
-				read -p "Press any key to go to the menu"
-			else
-				echo No Electra folder detected.
-				echo wallet.dat backup failed!
-				echo Exiting...
-				read -p "Press any key to go to the menu"
-			fi
+			#echo
+			#echo -=ECA User Spport Fix-o-Lot=-
+			#for /f %%x in ('wmic path win32_localtime get /format:list ^| findstr "="') do set %%x
+			#echo
+			#CURRENTDATETIME=date '+%Y_%m_%d_%H:%M:%S_ECA_BACKUP_Wallet.dat'
+			#echo Last Updated:%LASTUPDATE%
+			#echo
+			#echo Checking for Electra folder...
+			#if [ -d "$MAIN_FOLDER" ];
+			#then
+			#	mkdir ElectraWalletBackup
+			#	echo Copying wallet.dat to ElectraWalletBackup
+			#	echo `pwd`/`ls ElectraWalletBackup`
+			#	yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/wallet.dat
+			#	yes | cp -rf "$MAIN_FOLDER"/wallet.dat ElectraWalletBackup/"$CURRENTDATETIME"
+			#	echo
+			#	echo wallet.dat successfully backedup!
+			#	echo
+			#	read -p "Press any key to open the file location in the finder"
+			#	open ElectraWalletBackup
+			#	echo
+			#	read -p "Press any key to go to the menu"
+			#else
+				#echo No Electra folder detected.
+				#echo wallet.dat backup failed!
+				#echo Exiting...
+				#read -p "Press any key to go to the menu"
+			#fi
 			;;
         "[DO STEP 2 FIRST!] Assertion Error or Blockchain reinstall also JAVA Error")
             echo
@@ -131,80 +131,80 @@ do
 			echo
 			echo Last Updated:%LASTUPDATE%
 			echo
-			SET /P I=Your wallet needs to be backedup first, is your wallet backed up [y/n]: 
-			if NOT "%I%"=="y" (
-			echo
-			echo Returning to menu...
-			pause
-			GOTO MENU
-			)
-			echo
-			echo You MUST have your mnenomic phrase and passphrase before you start this! No Exception!
-			echo
-			SET /P K=Type [y/n] press ENTER: 
-			if NOT "%K%"=="y" (
-			echo
-			echo Returning to menu...
-			pause
-			GOTO MENU
-			)
-			echo
-			echo Press anykey to automatically close the wallet.
-			pause
-			taskkill /F /IM  "Electra Desktop.exe" /T  >nul 2>&1
-			taskkill /F /IM  "electrad-windows.exe" /T  >nul 2>&1
-			taskkill /F /IM  "Electra-qt.exe" /T  >nul 2>&1
-			cls
-			echo
-			echo Deleting files for fix...
-			rmdir /S /Q "%APPDATA%\Electra Desktop"
-			echo
-			echo Files deleted...
-			echo 
-			echo ****STOP and READ****
-			echo
-			echo Next, a older wallet version will be installed for recovery purposes. First, fill out the passphrase for your QT or New Wallet.
-			echo
-			echo If you are recoving a wallet, click Recover a Wallet Via Mnemonic. DO NOT PUT ANYTHING in the extension spot unless told to by User Support!
-			echo
-			echo You will need to complete this step and continue till you get to the white main screen in the wallet.
-			echo
-			echo Once you see this white main screen in the wallet, come back to this command prompt and follow the directions.
-			echo
-			echo Do NOT close the wallet!!!!
-			echo
-			echo **********************
-			echo
-			pause
-			start %ELECTRAOLD%
-			:MYLOOP
-			echo
-			SET W=NULL
-			SET /P W=Type the word "done" with no quotes when you see the main white screen on the wallet and press Enter: 
-			if NOT "%W%"=="done" GOTO MYLOOP
-			echo
-			echo Press anykey to automatically close the wallet.
-			pause
-			taskkill /F /IM  "Electra Desktop.exe" /T >nul 2>&1
-			taskkill /F /IM  "electrad-windows.exe" /T >nul 2>&1
-			taskkill /F /IM  "Electra-qt.exe" /T >nul 2>&1
-			cls
-			echo
-			echo Upgrading to newest wallet...
-			echo
-			echo Fill out your passphrase when asked.
-			echo
-			echo Pressing any key will start the installer.
-			echo
-			pause
-			start %ELECTRAFILE%
-			echo
-			echo It is recommended to run the peers.dat file if you are having syncing issues.
-			pause
-			echo
-			echo Return to menu...
-			pause
-			GOTO MENU
+			#SET /P I=Your wallet needs to be backedup first, is your wallet backed up [y/n]: 
+			#if NOT "%I%"=="y" (
+			#echo
+			#echo Returning to menu...
+			#pause
+			#GOTO MENU
+			#)
+			#echo
+			#echo You MUST have your mnenomic phrase and passphrase before you start this! No #Exception!
+			#echo
+			#SET /P K=Type [y/n] press ENTER: 
+			#if NOT "%K%"=="y" (
+			#echo
+			#echo Returning to menu...
+			#pause
+			#GOTO MENU
+			#)
+			#echo
+			#echo Press anykey to automatically close the wallet.
+			#pause
+			#taskkill /F /IM  "Electra Desktop.exe" /T  >nul 2>&1
+			#taskkill /F /IM  "electrad-windows.exe" /T  >nul 2>&1
+			#taskkill /F /IM  "Electra-qt.exe" /T  >nul 2>&1
+			#cls
+			#echo
+			#echo Deleting files for fix...
+			#rmdir /S /Q "%APPDATA%\Electra Desktop"
+			#echo
+			#echo Files deleted...
+			#echo 
+			#echo ****STOP and READ****
+			#echo
+			#echo Next, a older wallet version will be installed for recovery purposes. First, fill out the passphrase for your QT or New Wallet.
+			#echo
+			#echo If you are recoving a wallet, click Recover a Wallet Via Mnemonic. DO NOT PUT ANYTHING in the extension spot unless told to by User Support!
+			#echo
+			#echo You will need to complete this step and continue till you get to the white main screen in the wallet.
+			#echo
+			#echo Once you see this white main screen in the wallet, come back to this command prompt and follow the directions.
+			#echo
+			#echo Do NOT close the wallet!!!!
+			#echo
+			#echo **********************
+			#echo
+			#pause
+			#start %ELECTRAOLD%
+			#:MYLOOP
+			#echo
+			#SET W=NULL
+			#SET /P W=Type the word "done" with no quotes when you see the main white screen on the wallet and press Enter: 
+			#if NOT "%W%"=="done" GOTO MYLOOP
+			#echo
+			#echo Press anykey to automatically close the wallet.
+			#pause
+			#taskkill /F /IM  "Electra Desktop.exe" /T >nul 2>&1
+			#taskkill /F /IM  "electrad-windows.exe" /T >nul 2>&1
+			#taskkill /F /IM  "Electra-qt.exe" /T >nul 2>&1
+			#cls
+			#echo
+			#echo Upgrading to newest wallet...
+			#echo
+			#echo Fill out your passphrase when asked.
+			#echo
+			#echo Pressing any key will start the installer.
+			#echo
+			#pause
+			#start %ELECTRAFILE%
+			#echo
+			#echo It is recommended to run the peers.dat file if you are having syncing issues.
+			#pause
+			#echo
+			#echo Return to menu...
+			#pause
+			#GOTO MENU
             ;;
 		"Upgrade from QT wallet")
             echo
@@ -240,6 +240,10 @@ do
 			echo
 			pause
 			GOTO MENU
+            ;;
+        "Rescan Wallet")
+            ;;
+        "Blockchain Update Fast Sync"
             ;;
         "Quit")
             break
